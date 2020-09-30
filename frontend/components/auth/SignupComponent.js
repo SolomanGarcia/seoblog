@@ -26,9 +26,9 @@ const SignupComponent = () => {
       } else {
         setValues({
           ...values,
-          name: "",
-          email: "",
-          password: "",
+          name: "solo",
+          email: "solo@gmail.com",
+          password: "password",
           error: "",
           loading: false,
           message: data.message,
