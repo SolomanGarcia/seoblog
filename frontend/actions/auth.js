@@ -1,5 +1,5 @@
 import fetch from "isomorphic-fetch";
-import cookie, { set } from "js-cookie";
+import cookie from "js-cookie";
 import { API } from "../config";
 
 export const signup = (user) => {

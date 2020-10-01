@@ -72,7 +72,7 @@ exports.requireSignin = expressJwt({
 });
 
 exports.authMiddleware = (req, res, next) => {
-  const authUserId = req.auth._id;
+  const authUserId = req.user._id;
   User.findById({ _id: authUserId }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
@@ -84,8 +84,8 @@ exports.authMiddleware = (req, res, next) => {
   });
 };
 
-exports.admineMiddleware = (req, res, next) => {
-  const adminUserId = req.user._id;
+exports.adminMiddleware = (req, res, next) => {
+  const adminUserId = req.auth._id;
   User.findById({ _id: adminUserId }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
