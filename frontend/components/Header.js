@@ -48,7 +48,7 @@ const Header = () => {
             {isAuth() && (
               <NavItem>
                 <NavLink
-                  style={{ cursor: "ponter" }}
+                  style={{ cursor: "pointer" }}
                   onClick={() => signout(() => Router.replace(`/signin`))}
                 >
                   Sign out

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { signup, isAuth } from "../../actions/auth";
-import Router from "net/router";
+import Router from "next/router";
 
 const SignupComponent = () => {
   const [values, setValues] = useState({

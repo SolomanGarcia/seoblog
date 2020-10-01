@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { signin, authenticate, isAuth } from "../../actions/auth";
 import Router from "next/router";
 
@@ -18,9 +18,9 @@ const SigninComponent = () => {
     e.preventDefault();
     setValues({ ...values, loading: true, error: false });
 
-    useEffect(() => {
-      isAuth() && Router.push(`/`);
-    }, []);
+    // useEffect(() => {
+    //   isAuth() && Router.push(`/`);
+    // }, []);
 
     const user = { email, password };
 
@@ -32,7 +32,11 @@ const SigninComponent = () => {
         // save user info to localstorage
         // authenticate user
         authenticate(data, () => {
-          Router.push(`/`);
+          if (isAuth() && isAuth().role === 1) {
+            Router.push(`/admin`);
+          } else {
+            Router.push(`/user`);
+          }
         });
       }
     });
