@@ -17,8 +17,17 @@ router.post(
   adminMiddleware,
   create
 );
-router.get("./tags", list);
-router.get("./tag/:slug", read);
-router.delete("./tag/:slug", requireSignin, adminMiddleware, remove);
+
+router.post(
+  "/tag",
+  createTagValidator,
+  runValidation,
+  requireSignin,
+  adminMiddleware,
+  create
+);
+router.get("/tags", list);
+router.get("/tag/:slug", read);
+router.delete("/tag/:slug", requireSignin, adminMiddleware, remove);
 
 module.exports = router;
