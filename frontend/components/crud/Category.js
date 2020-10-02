@@ -76,7 +76,7 @@ const Category = () => {
   const clickSubmit = (e) => {
     e.preventDefault();
     create({ name }, token).then((data) => {
-      if (Date.error) {
+      if (data.error) {
         setValues({ ...values, error: data.error, success: false });
       } else {
         setValues({
