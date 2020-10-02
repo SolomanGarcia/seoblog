@@ -148,7 +148,6 @@ const Category = () => {
       {showSuccess()}
       {showError()}
       {showRemoved()}
-
       <div onMouseMove={mouseMoveHandler}>
         {newCategoryForm()}
         {showCategories()}
