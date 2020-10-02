@@ -80,7 +80,7 @@ const Tag = () => {
         setValues({
           ...values,
           error: false,
-          success: false,
+          success: true,
           name: "",
           removed: "",
           reload: !reload
