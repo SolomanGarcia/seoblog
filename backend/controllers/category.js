@@ -38,7 +38,7 @@ exports.read = (req, res) => {
         error: errorHandler(err)
       });
     }
-    res.json(Category);
+    res.json(category);
   });
 };
 

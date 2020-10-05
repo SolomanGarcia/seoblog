@@ -1,7 +1,6 @@
 const Blog = require("../models/blog");
 const Category = require("../models/category");
 const Tag = require("../models/tag");
-const User = require("../models/user");
 const formidable = require("formidable");
 const slugify = require("slugify");
 const stripHtml = require("string-strip-html");
@@ -15,7 +14,7 @@ exports.create = (req, res) => {
   form.parse(req, (err, fields, files) => {
     if (err) {
       return res.status(400).json({
-        error: "Image could not be uploaded"
+        error: "Image could not upload"
       });
     }
 
@@ -32,7 +31,7 @@ exports.create = (req, res) => {
     if (files.photo) {
       if (files.photo.size > 10000000) {
         return res.status(400).json({
-          error: "Image should be less than 1mb in size"
+          error: "Image should be less then 1mb in size"
         });
       }
       blog.photo.data = fs.readFileSync(files.photo.path);

@@ -4,6 +4,7 @@ const jwt = require("jsonwebtoken");
 const expressJwt = require("express-jwt");
 
 exports.signup = (req, res) => {
+  // console.log(req.body);
   User.findOne({ email: req.body.email }).exec((err, user) => {
     if (user) {
       return res.status(400).json({
@@ -22,8 +23,11 @@ exports.signup = (req, res) => {
           error: err
         });
       }
+      // res.json({
+      //     user: success
+      // });
       res.json({
-        message: "Sign up successful! Please sign in."
+        message: "Signup success! Please signin."
       });
     });
   });
@@ -35,7 +39,7 @@ exports.signin = (req, res) => {
   User.findOne({ email }).exec((err, user) => {
     if (err || !user) {
       return res.status(400).json({
-        error: "No user found with that email. Please sign up."
+        error: "User with that email does not exist. Please signup."
       });
     }
     // authenticate
@@ -61,7 +65,7 @@ exports.signin = (req, res) => {
 exports.signout = (req, res) => {
   res.clearCookie("token");
   res.json({
-    message: "Sign out successful"
+    message: "Signout success"
   });
 };
 
@@ -95,7 +99,7 @@ exports.adminMiddleware = (req, res, next) => {
 
     if (user.role !== 1) {
       return res.status(400).json({
-        error: "Admin resource. Access denied."
+        error: "Admin resource. Access denied"
       });
     }
 

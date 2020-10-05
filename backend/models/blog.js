@@ -25,7 +25,7 @@ const blogSchema = new mongoose.Schema(
       type: String,
       max: 1000
     },
-    mtitile: {
+    mtitle: {
       type: String
     },
     mdesc: {

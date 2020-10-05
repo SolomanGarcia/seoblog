@@ -15,7 +15,7 @@ exports.create = (req, res) => {
         error: errorHandler(err)
       });
     }
-    res.json(data);
+    res.json(data); // dont do this res.json({ tag: data });
   });
 };
 
@@ -39,6 +39,7 @@ exports.read = (req, res) => {
         error: "Tag not found"
       });
     }
+    res.json(tag);
   });
 };
 
