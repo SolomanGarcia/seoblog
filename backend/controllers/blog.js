@@ -1,6 +1,7 @@
 const Blog = require("../models/blog");
 const Category = require("../models/category");
 const Tag = require("../models/tag");
+const User = require("../models/user");
 const formidable = require("formidable");
 const slugify = require("slugify");
 const stripHtml = require("string-strip-html");
@@ -41,7 +42,7 @@ exports.create = (req, res) => {
     blog.save((err, result) => {
       if (err) {
         return res.status(400).json({
-          error: errorHandler()
+          error: errorHandler(err)
         });
       }
       res.json(result);
